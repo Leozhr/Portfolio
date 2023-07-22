@@ -1,13 +1,25 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     outline: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: ${theme.color.light};
+    font-family: ${theme.font.family.poppins};
+    font-weight: 700;
+  }
+
+  h1, h2, p, span {
+    font-weight: 500;
+    color: ${theme.color.dark};
   }
 
   html {
@@ -26,5 +38,10 @@ export const GlobalStyle = createGlobalStyle`
 
   li {
     list-style: none;
+  }
+
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
   }
 `

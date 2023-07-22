@@ -1,10 +1,21 @@
 'use client';
-import { GlobalStyle } from '@/styles/global';
+import { Header } from '@/components/templates/Header';
+import { GlobalStyle, theme } from '@/styles';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-poppins',
+})
+
+const jakarta = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-jakarta',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,10 +25,13 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <ThemeProvider theme={{}}>
-        <GlobalStyle />
-        <body className={inter.className}>{children}</body>
-      </ThemeProvider>
+        <body className={`${poppins.variable} ${jakarta.variable}`}>
+          <ThemeProvider theme={{theme}}>
+            <GlobalStyle />
+            <Header />
+            {children}
+          </ThemeProvider>
+        </body>
     </html>
   )
 }
