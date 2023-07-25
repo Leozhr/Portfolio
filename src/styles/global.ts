@@ -12,9 +12,20 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    width: 100%;
     background: ${theme.color.light};
     font-family: ${theme.font.family.poppins};
     font-weight: 700;
+    animation: pause 5s linear forwards;
+  }
+
+  @keyframes pause {
+    0% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: inherit;
+    }
   }
 
   h1, h2, p, span {

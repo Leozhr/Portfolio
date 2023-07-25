@@ -27,9 +27,9 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
     <html lang="pt-BR">
         <body className={`${poppins.variable} ${jakarta.variable}`}>
           <ThemeProvider theme={{theme}}>
-            <GlobalStyle />
-            <Header />
-            {children}
+              <GlobalStyle />
+              <Header />
+              {children}
           </ThemeProvider>
         </body>
     </html>
