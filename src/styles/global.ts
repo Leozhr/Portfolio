@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     animation: pause 5s linear forwards;
   }
 
-  @keyframes pause {
+  @keyframes pauses {
     0% {
       overflow: hidden;
     }
