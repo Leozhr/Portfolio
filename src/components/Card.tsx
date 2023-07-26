@@ -21,8 +21,8 @@ const CardStyle = styled.header`
 
     &-info {
       h1 {
-        font-size: 24px;
-        font-weight: 400;
+        font-size: 22px;
+        font-weight: 500;
         font-family: ${theme.font.family.jakarta};
         text-transform: uppercase;
       }
