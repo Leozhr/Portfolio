@@ -1,4 +1,5 @@
 'use client';
+import { Footer } from '@/components/templates/Footer';
 import { Header } from '@/components/templates/Header';
 import { GlobalStyle, theme } from '@/styles';
 import type { Metadata } from 'next';
@@ -30,6 +31,7 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
               <GlobalStyle />
               <Header />
               {children}
+              <Footer />
           </ThemeProvider>
         </body>
     </html>
