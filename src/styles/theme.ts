@@ -15,6 +15,8 @@ export const theme = {
     dark: '#141414',
     light: '#f4f4f4',
     detail: '#a9a9a9',
+    flare: '#808080',
     hidden: '#242424',
+    opacity: '#5e5e5e',
   }
 }

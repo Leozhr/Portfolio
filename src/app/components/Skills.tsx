@@ -18,6 +18,17 @@ const SkillsStyle = styled.header`
   .skills {
     border-top: 1px solid ${theme.color.detail};
   }
+
+  @media (min-width: 1027px) {
+    padding: 120px 0px;
+    background-color: ${theme.color.dark};
+
+    .title {
+    font-size: 64px;
+    margin-bottom: 100px;
+    color: ${theme.color.light};
+  }
+  }
 `
 
 const Skills = () => {

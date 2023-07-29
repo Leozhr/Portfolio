@@ -11,6 +11,23 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ::selection {
+    background-color: #9400d390;
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+  width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${theme.color.opacity};  
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ddd; /* Cor da trilha da barra de rolagem */
+  }
+
   body {
     width: 100%;
     background: ${theme.color.light};

@@ -18,6 +18,18 @@ const LogoStyle = styled.div`
   .light {
     filter: invert(1);
   }
+
+  @media (min-width: 1027px) {
+    gap: 10px;
+
+    h1 {
+      font-weight: 700;
+    }
+
+    .logo {
+      transform: scale(1.2);
+    }
+  }
 `
 
 interface LogoProps {
@@ -28,7 +40,7 @@ const Logo = ({ light }: LogoProps) => {
   return (
     <LogoStyle className="">
       <Image src="/images/logo.svg" height={24} width={24} alt="Logo"
-      className={light ? "light" : ""} />
+      className={`${light ? "light" : ""} logo`} />
       <h1 className={light ? "light" : ""}>
         Leonardo Leal
       </h1>

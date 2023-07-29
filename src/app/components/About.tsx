@@ -1,3 +1,4 @@
+import { useWidthPage } from "@/functions/WidthPage";
 import { theme } from "@/styles";
 import Image from "next/image";
 import styled from "styled-components";
@@ -41,6 +42,7 @@ const AboutStyle = styled.div`
 
     &-button {
       padding: 20px 0px;
+      cursor: pointer;
       border-bottom: 1px solid ${theme.color.hidden};
       border-top: 1px solid ${theme.color.hidden};
       transition: .3s all;
@@ -75,11 +77,66 @@ const AboutStyle = styled.div`
       padding: 0px 25px;
     }
   }
+
+  @media (min-width: 1027px) {
+    .about {
+      padding: 120px 0px;
+
+    p {
+      font-size: 26px;
+      padding: 34px 0px;
+    }
+    
+    &-info {
+      margin: 0;
+    }
+
+    &-title {
+      display: flex;
+      padding: 10px 20px 10px 15px;
+
+      span { font-size: 16px; font-family: ${theme.font.family.poppins}; }
+    }
+
+    &-button {
+      margin: 0;
+
+      &-container { padding: 0; }
+      &-info { h1 { font-size: 20px; } }
+    }
+  }
+
+  .container {
+    display: grid;
+    gap: 60px;
+    grid-template-columns: 1fr 300px;
+    margin: 0px 10%;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-img { border-radius: 12px; }
+  }   
+  }
+
+  @media (min-width: 1650px) { 
+    .container {
+      margin: 0px 20%;
+      gap: 100px;
+    }
+}
+
 `
 
 const About = () => {
+  const widthPage = useWidthPage();
+
   return (
     <AboutStyle>
+    <section className="container">
       <div className="about">
         <div className="about-info">
           <div className="about-title">
@@ -103,8 +160,13 @@ const About = () => {
             <Image src="/images/arrow.svg" height={16} width={16} alt="Arrow" />
           </div>
         </div>
-
       </div>
+
+      { widthPage > 1027 && <div className="profile">
+        <Image src="/images/about-profile.png" height={300} width={250} alt="Logo"
+        className="profile-img" />
+      </div>}
+      </section>
     </AboutStyle>
   )
 }

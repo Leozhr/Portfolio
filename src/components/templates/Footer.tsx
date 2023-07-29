@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const FooterStyle = styled.header`
+const FooterStyle = styled.section`
   padding: 80px 0px 0px 0px;
 
   footer {
@@ -29,6 +29,10 @@ const FooterStyle = styled.header`
       }
     }
 
+    .contact:hover {
+      background: ${theme.color.hidden};
+    }
+
     .copyright {
       padding: 30px 15px 40px 15px;
       display: flex;
@@ -45,6 +49,39 @@ const FooterStyle = styled.header`
       padding: 8px;
       display: flex;
       border-radius: 50px;
+
+      &:hover {
+        background-color: ${theme.color.flare};
+      }
+
+      .icon {
+        filter: invert(1);
+      }
+    }
+  }
+
+  @media (min-width: 1027px) {
+    footer {
+      .contact {
+        gap: 15px;
+
+        h1 { font-size: 22px; }
+        .return { transform: scale(1.2); margin-bottom: 2px; }
+      }
+
+      .social {
+        padding: 12px;
+      }
+
+      &:hover {
+        .return { animation: return 0.9s linear infinite; }
+      }
+
+      @keyframes return {
+        0% { margin-bottom: 2px; }
+        50% { margin-bottom: 10px;  }
+        100% { margin-bottom: 2px;  }
+      }
     }
   }
 `
@@ -59,21 +96,22 @@ const Footer = () => {
       <footer>
         <div className='contact' onClick={returnOnTop}>
           <h1>retornar ao topo</h1>
-          <Image src="/images/up-arrow.svg" height={20} width={20} alt="return" />
+          <Image src="/images/up-arrow.svg" height={20} width={20} alt="return"
+          className='return' />
         </div>
 
         <div className='copyright'>
           <div className='copyright-icons'>
             <Link href='https://github.com/leoleal' className='social'>
-              <Image src="/images/discord.svg" height={24} width={24} alt="Github" />
+              <Image src="/images/discord.svg" height={24} width={24} alt="Github" className='icon' />
             </Link>
 
             <Link href='https://github.com/leoleal' className='social'>
-              <Image src="/images/git.svg" height={24} width={24} alt="Github" />
+              <Image src="/images/git.svg" height={24} width={24} alt="Github" className='icon' />
             </Link>
 
             <Link href='https://github.com/leoleal' className='social'>
-              <Image src="/images/linkedin.svg" height={24} width={24} alt="Github" />
+              <Image src="/images/linkedin.svg" height={24} width={24} alt="Github" className='icon' />
             </Link>
           </div>
         </div>

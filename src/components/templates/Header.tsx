@@ -1,8 +1,10 @@
 'use client';
+import { useWidthPage } from "@/functions/WidthPage";
 import { theme } from "@/styles";
 import { useState } from "react";
 import styled from "styled-components";
 import { Logo } from "../Logo";
+import { LinkActive } from "../animation/LinkActive";
 import { Main } from "./Main";
 
 const HeaderStyle = styled.header`
@@ -65,23 +67,52 @@ const HeaderStyle = styled.header`
     transform: rotate(45deg);
     position: absolute;
   }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: ${theme.color.flare};
+
+    .link:hover {
+      color: ${theme.color.dark};
+    }
+
+    .active { color: ${theme.color.dark}; }
+  }
+
+
+  @media (min-width: 1027px) { padding: 0px 10%; }
 `;
 
 const Header = () => {
   const [Menu, SetMenu] = useState(false);
+  const widthPage = useWidthPage();
 
   return (
     <HeaderStyle>
       <nav>
         <Logo light={false} />
 
-        <div className={`${Menu ? "main" : ""} menu`}
+        {widthPage <= 1027 && <div className={`${Menu ? "main" : ""} menu`}
          onClick={() => SetMenu(!Menu)}>
           <div className="menu-space">
             <span />
             <span />
           </div>
-        </div>
+        </div>}
+
+        {widthPage > 1027 && <div>
+          <ul className="navigation">
+            <LinkActive href='/' className="link">Inicio</LinkActive>
+            <LinkActive href='/profile' className="link">Sobre mim</LinkActive>
+            <LinkActive href='/project' className="link">Projetos</LinkActive>
+            <LinkActive href='/contact' className="link">Contatos</LinkActive>
+          </ul>
+        </div>}
       </nav>
 
       <Main main={Menu} />

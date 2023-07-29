@@ -1,3 +1,4 @@
+'use client';
 import { Project } from '@/components/Project';
 import { theme } from '@/styles';
 import Link from 'next/link';
@@ -14,7 +15,7 @@ const ProjectsStyle = styled.header`
     margin-bottom: 40px;
 
     span {
-      color: ${theme.color.detail};
+      color: ${theme.color.flare};
     }
   }
 
@@ -30,9 +31,35 @@ const ProjectsStyle = styled.header`
 
     span {
       width: 100%; 
-      color: ${theme.color.detail};
+      color: ${theme.color.flare};
       font-size: 14px;
       text-decoration: underline;
+    }
+  }
+
+  @media (min-width: 1027px) {
+    background-color: ${theme.color.light};
+    padding: 120px 0px;
+
+    .title {
+      font-size: 64px;
+      font-weight: 600;
+      color: ${theme.color.dark};
+      margin-bottom: 80px;
+    }
+
+    .projects { border: none; }
+
+    .all-projects { 
+      span { 
+        color: ${theme.color.dark}; 
+        font-size: 28px; 
+        transition: all 0.2s linear;
+      } 
+    }
+
+    .all-projects span:hover {
+      color: ${theme.color.flare};
     }
   }
 `
@@ -44,16 +71,18 @@ const Projects = () => {
       
       <div className='projects'>
         <Project
-        href="/"
+        href="/home"
         title="Storee"
         description="React, Next & Node"
-        src="/images/project-01.png" />
+        src="/images/project-01.png"
+        skills={['React', 'Next', 'Node']} />
   
         <Project
         href="/"
-        title="Storee"
+        title="AeroTour"
         description="React, Next & Node"
-        src="/images/project-01.png" />
+        src="/images/project-01.png"
+        skills={['React', 'Next', 'MySQL']} />
   
         <Project
         href="/"
@@ -67,7 +96,7 @@ const Projects = () => {
       </Link>
 
     </ProjectsStyle>
-  )
+  ) 
 }
 
 export { Projects };

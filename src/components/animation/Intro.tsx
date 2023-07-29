@@ -4,7 +4,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const IntroStyle = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   overflow: hidden;
   top: 0;
@@ -15,7 +15,7 @@ const IntroStyle = styled.div`
   z-index: 100;
 
   .intro {
-    margin-top: 80%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +49,14 @@ const IntroStyle = styled.div`
   .logo {
     animation: spiner 2.5s linear forwards;
   }
+
+  @media (min-width: 1027px) {
+    .intro {
+      .title h1 { font-size: 28px; }
+      .logo { transform: scale(1.5); }
+    }   
+  }
+  
 
   @keyframes transition {
     0% {
