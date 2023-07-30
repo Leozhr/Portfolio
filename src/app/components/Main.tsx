@@ -186,7 +186,7 @@ const Main = () => {
       </p>
 
       <div className="btn">
-        <Button text="Entre em Contato" href="/contato" />
+        <Button text="Entre em Contato" href="/contact" />
         <Button text="Projetos" href="/contato" />
       </div>
     </MainStyle>

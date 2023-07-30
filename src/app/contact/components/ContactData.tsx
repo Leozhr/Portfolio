@@ -1,7 +1,7 @@
 import { theme } from '@/styles';
 import styled from 'styled-components';
 
-const ContactDataStyle = styled.header`
+const ContactDataStyle = styled.div`
   padding: 60px 20px 0px 20px;
 
   h1 {

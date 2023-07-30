@@ -1,6 +1,7 @@
 'use client';
 import { useWidthPage } from "@/functions/WidthPage";
 import { theme } from "@/styles";
+import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
 import { Logo } from "../Logo";
@@ -95,7 +96,7 @@ const Header = () => {
   return (
     <HeaderStyle>
       <nav>
-        <Logo light={false} />
+        <Link href='/'><Logo light={false} /></Link>
 
         {widthPage <= 1027 && <div className={`${Menu ? "main" : ""} menu`}
          onClick={() => SetMenu(!Menu)}>
@@ -107,7 +108,6 @@ const Header = () => {
 
         {widthPage > 1027 && <div>
           <ul className="navigation">
-            <LinkActive href='/' className="link">Inicio</LinkActive>
             <LinkActive href='/profile' className="link">Sobre mim</LinkActive>
             <LinkActive href='/project' className="link">Projetos</LinkActive>
             <LinkActive href='/contact' className="link">Contatos</LinkActive>
