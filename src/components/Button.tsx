@@ -39,7 +39,7 @@ const ButtonStyle = styled.button`
     h1 { font-size: 20px; }
   }
 
-  @media (min-width: 1650px) { border: 1px solid ${theme.color.opacity}; }
+  @media (min-width: 1650px) { border: 1px solid ${theme.color.flare}; }
 `
 
 interface ButtonProps {

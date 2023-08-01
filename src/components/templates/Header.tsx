@@ -1,21 +1,24 @@
 'use client';
+import { LinkToCheck } from "@/functions/LinkToCheck";
 import { useWidthPage } from "@/functions/WidthPage";
 import { theme } from "@/styles";
 import Link from "next/link";
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { StyleSheetManager } from "styled-components";
 import { Logo } from "../Logo";
 import { LinkActive } from "../animation/LinkActive";
 import { Main } from "./Main";
 
-const HeaderStyle = styled.header`
+const HeaderStyle = styled.header<{ dark: any }>`
   border-bottom: 1px solid ${theme.color.detail};
   height: 80px;
   display: flex;
   align-items: center;
-  background: ${theme.color.light};
+  background: ${({ dark }) => dark ? theme.color.dark : theme.color.light};
+  width: 100%;
 
   nav {
+    ${({ dark }) => dark ? 'filter: invert(1)' : ''};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -85,16 +88,22 @@ const HeaderStyle = styled.header`
     .active { color: ${theme.color.dark}; }
   }
 
+  .dark {
+    background: ${theme.color.dark};
+  }
+
 
   @media (min-width: 1027px) { padding: 0px 10%; }
 `;
 
 const Header = () => {
   const [Menu, SetMenu] = useState(false);
+  const darkMode = LinkToCheck();
   const widthPage = useWidthPage();
 
   return (
-    <HeaderStyle>
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== "dark"}>
+    <HeaderStyle dark="">
       <nav>
         <Link href='/'><Logo light={false} /></Link>
 
@@ -117,6 +126,7 @@ const Header = () => {
 
       <Main main={Menu} />
     </HeaderStyle>
+    </StyleSheetManager>
   )
 }
 

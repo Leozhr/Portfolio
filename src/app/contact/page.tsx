@@ -9,7 +9,7 @@ const ContactStyle = styled.div`
   @media (min-width: 1027px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 90vh;
+    height: 95vh;
   }
 `
 

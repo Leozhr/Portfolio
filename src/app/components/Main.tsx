@@ -135,11 +135,6 @@ const MainStyle = styled.main`
       font-size: 26px;
       line-height: 32px;
       width: 100%;
-      color: ${theme.color.flare};
-    }
-
-    span {
-      color: ${theme.color.flare};
     }
 
     .title {
@@ -148,7 +143,7 @@ const MainStyle = styled.main`
     }
 
     .media {
-      div { border: 1px solid ${theme.color.opacity}; }
+      div { border: 1px solid ${theme.color.flare}; }
     }
   }
 `
@@ -187,7 +182,7 @@ const Main = () => {
 
       <div className="btn">
         <Button text="Entre em Contato" href="/contact" />
-        <Button text="Projetos" href="/contato" />
+        <Button text="Projetos" href="/project" />
       </div>
     </MainStyle>
   )
