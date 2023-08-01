@@ -1,20 +1,22 @@
+import { CardAnimated } from '@/components/animation/CardAnimated';
 import { useWidthPage } from '@/functions/WidthPage';
 import { theme } from '@/styles';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { CardAnimated } from './animation/CardAnimated';
 
 const ProjectStyleLight = styled.section`
-  border-bottom: 1px solid ${theme.color.hidden};
+  border-bottom: 1px solid ${theme.color.detail};
+  background-color: white;
 
   h1 {
     color: ${theme.color.light};
     font-family: ${theme.font.family.jakarta};
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 20px !important;
     font-weight: 500;
+    text-align: start !important;
   }
 
   p {
@@ -28,6 +30,7 @@ const ProjectStyleLight = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    filter: invert(1);
 
     &-icon {
       padding: 10px 10px 5px 10px;
@@ -75,7 +78,7 @@ type ProjectProps = {
   skills?: Array<string>;
 }
 
-const Project = ({ href, title, description, src, skills, dark }: ProjectProps) => {
+const ProjectLight = ({ href, title, description, src, skills, dark }: ProjectProps) => {
   const [ Active, setActive ] = useState(false);
   const widthPage = useWidthPage();
   const router = useRouter();
@@ -110,5 +113,5 @@ const Project = ({ href, title, description, src, skills, dark }: ProjectProps) 
   )
 }
 
-export { Project };
+export { ProjectLight };
 

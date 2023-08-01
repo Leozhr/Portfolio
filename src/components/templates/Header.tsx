@@ -103,7 +103,7 @@ const Header = () => {
 
   return (
     <StyleSheetManager shouldForwardProp={(prop) => prop !== "dark"}>
-    <HeaderStyle dark="">
+    <HeaderStyle dark={darkMode ? 'true' : ''}>
       <nav>
         <Link href='/'><Logo light={false} /></Link>
 

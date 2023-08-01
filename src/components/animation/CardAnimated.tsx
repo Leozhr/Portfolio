@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Card from 'react-animated-3d-card';
 import { styled } from 'styled-components';
 
-const CardStyle = styled.div`
+const CardStyleAnimated = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -41,10 +41,15 @@ const CardStyle = styled.div`
     bottom: 30px;
     left: 30px;
     border-radius: 12px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     h1 {
       font-size: 24px;
       font-weight: 600;
+      color: ${theme.color.dark};
     }
   }
 
@@ -70,7 +75,7 @@ type CardProps = {
   href: string;
 }
 
-const CardContainer = ({ title, skills, src, href }: CardProps) => {
+const CardAnimated = ({ title, skills, src, href }: CardProps) => {
   const router = useRouter();
   
   return (
@@ -84,7 +89,7 @@ const CardContainer = ({ title, skills, src, href }: CardProps) => {
         zIndex: '0'
       }}
       onClick={() => router.push(href)}>
-        <CardStyle>
+        <CardStyleAnimated>
           <div className='card'>
             <div className='card-svg'>
               <Image src="/images/arrow.svg" height={20} width={20} alt="Project Arrow" />
@@ -102,10 +107,10 @@ const CardContainer = ({ title, skills, src, href }: CardProps) => {
               )) : null }
             </div>
           </div>
-        </CardStyle>
+        </CardStyleAnimated>
     </Card>
   )
 }
 
-export { CardContainer };
+export { CardAnimated };
 
