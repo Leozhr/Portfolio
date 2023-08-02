@@ -7,7 +7,6 @@ import { useState } from "react";
 import styled, { StyleSheetManager } from "styled-components";
 import { Logo } from "../Logo";
 import { LinkActive } from "../animation/LinkActive";
-import { Main } from "./Main";
 
 const HeaderStyle = styled.header<{ dark: any }>`
   border-bottom: 1px solid ${theme.color.detail};
@@ -18,7 +17,6 @@ const HeaderStyle = styled.header<{ dark: any }>`
   width: 100%;
 
   nav {
-    ${({ dark }) => dark ? 'filter: invert(1)' : ''};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,13 +29,12 @@ const HeaderStyle = styled.header<{ dark: any }>`
     border: 1px solid ${theme.color.detail};
     border-radius: 100%;
     cursor: pointer;
-    background-color: white;
+    background-color: ${({ dark }) => dark ? '#141414' : 'white'};
     height: 55px;
     width: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 20;
 
     &-space {
       width: 28px;
@@ -56,7 +53,7 @@ const HeaderStyle = styled.header<{ dark: any }>`
   .menu span {
     width: 100%;
     height: 2px;
-    background-color: ${theme.color.dark};
+    background-color: ${({ dark }) => dark ? `${theme.color.light}` : `${theme.color.dark}`};
     display: block;
     border-radius: 10px;
     transition: all 0.2s linear;
@@ -92,9 +89,72 @@ const HeaderStyle = styled.header<{ dark: any }>`
     background: ${theme.color.dark};
   }
 
-
   @media (min-width: 1027px) { padding: 0px 10%; }
 `;
+
+const MenuStyle = styled.div`
+.menu-tab {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: ${theme.color.dark};
+  height: 0px;
+  transition: all 0.3s;
+  }
+
+  .bg {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .menu-nav {
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+
+    .link-tab {
+      height: max-content;
+      color: ${theme.color.light};
+      font-size: 16px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: ${theme.color.opacity};
+      border-radius: 8px;
+    }
+  }
+
+  .active-tab {
+    height: 120px;
+    border-bottom: 1px solid ${theme.color.detail};
+
+    .menu-nav {
+      display: flex;
+      animation: tabs 0.5s linear forwards;
+    }
+
+    @keyframes tabs {
+      0% {
+        transform: translateY(15px);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+  }
+
+  .active {
+    border: 1px solid ${theme.color.light};
+  }
+`
 
 const Header = () => {
   const [Menu, SetMenu] = useState(false);
@@ -105,7 +165,7 @@ const Header = () => {
     <StyleSheetManager shouldForwardProp={(prop) => prop !== "dark"}>
     <HeaderStyle dark={darkMode ? 'true' : ''}>
       <nav>
-        <Link href='/'><Logo light={false} /></Link>
+        <Link href='/'><Logo light={darkMode ? true : false} /></Link>
 
         {widthPage <= 1027 && <div className={`${Menu ? "main" : ""} menu`}
          onClick={() => SetMenu(!Menu)}>
@@ -124,7 +184,16 @@ const Header = () => {
         </div>}
       </nav>
 
-      <Main main={Menu} />
+      <MenuStyle>
+        {Menu && <div className="bg" onClick={() => SetMenu(!Menu)} />}
+        <div className={`${Menu ? "active-tab" : ""} menu-tab`}>
+          <div className='menu-nav'>
+            <LinkActive href='/profile' className="link-tab">Sobre mim</LinkActive>
+            <LinkActive href='/project' className="link-tab">Projetos</LinkActive>
+            <LinkActive href='/contact' className="link-tab">Contatos</LinkActive>
+          </div>
+        </div>
+    </MenuStyle>
     </HeaderStyle>
     </StyleSheetManager>
   )

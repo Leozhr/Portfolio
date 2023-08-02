@@ -1,6 +1,7 @@
 import { useWidthPage } from "@/functions/WidthPage";
 import { theme } from "@/styles";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 
 const AboutStyle = styled.div`
@@ -128,11 +129,15 @@ const AboutStyle = styled.div`
       gap: 100px;
     }
 }
-
 `
 
 const About = () => {
   const widthPage = useWidthPage();
+  const router = useRouter();
+
+  const goToAbout = () => {
+    router.push("/profile");
+  }
 
   return (
     <AboutStyle>
@@ -150,7 +155,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="about-button">
+        <div className="about-button" onClick={goToAbout}>
           <div className="about-button-container">
             <div className="about-button-info">
               <Image src="/images/code.svg" height={20} width={20} alt="Code" />

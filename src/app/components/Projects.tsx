@@ -71,7 +71,7 @@ const Projects = () => {
       
       <div className='projects'>
         <Project
-        href="/home"
+        href="/"
         title="Storee"
         description="React, Next & Node"
         src="/images/project-01.png"
@@ -91,7 +91,7 @@ const Projects = () => {
         src="/images/project-01.png" />
       </div>
 
-      <Link href="/contato" className='all-projects'>
+      <Link href="/project" className='all-projects'>
         <span>Ver todos os Projetos</span>
       </Link>
 

@@ -93,6 +93,7 @@ const MainStyle = styled.main`
     }
 
     div:hover {
+      background-color: #ededed;
       filter: invert(1);
     }
   }

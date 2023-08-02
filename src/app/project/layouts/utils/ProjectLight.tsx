@@ -96,9 +96,9 @@ const ProjectLight = ({ href, title, description, src, skills, dark }: ProjectPr
           </div>
         </div>
     
-        <div className={`block ${Active ? 'block-active' : ''}`} onClick={() => router.push(href)}>
+        <div className={`block ${Active ? 'block-active' : ''}`}>
           <Image src={src} height={500} width={750} alt="Project"
-          className='block-img' />
+          className='block-img' onClick={() => router.push(href)} />
         </div>
       </ProjectStyleLight>}
 
