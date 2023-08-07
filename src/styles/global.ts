@@ -28,6 +28,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #ddd; /* Cor da trilha da barra de rolagem */
   }
 
+  :root {
+    --swiper-theme-color: #141414;
+  }
+
   body {
     width: 100%;
     background: ${theme.color.light};
@@ -72,4 +76,10 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 90%;
     margin: 0 auto;
   }
+
+  .swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 40px));
+    border-radius: 0;
+  }
+
 `

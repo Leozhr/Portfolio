@@ -23,10 +23,10 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
         <body className={`${poppins.variable} ${jakarta.variable}`} suppressHydrationWarning={true}>
           <ThemeProvider theme={{theme}}>
-              <GlobalStyle />
-              <Header />
-              {children}
-              <Footer />
+            <GlobalStyle />
+            <Header />
+            {children}
+            <Footer />
           </ThemeProvider>
         </body>
     </html>

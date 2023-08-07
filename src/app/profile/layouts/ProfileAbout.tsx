@@ -53,6 +53,10 @@ const ProfileAboutStyle = styled.div`
       }
     }
   }
+
+  @media (min-width: 1027px) {
+    
+  }
 `
 
 const ProfileAbout = () => {
@@ -67,7 +71,7 @@ const ProfileAbout = () => {
 
       <div className='cards'>
         <div>
-          <h2>21 Anos</h2>
+          <h2>22 Anos</h2>
         </div>
         <div>
           <h2>Pindamonhangaba / <span>São Paulo</span></h2>

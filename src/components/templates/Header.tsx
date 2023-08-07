@@ -85,6 +85,19 @@ const HeaderStyle = styled.header<{ dark: any }>`
     .active { color: ${theme.color.dark}; }
   }
 
+  ${({ dark }) => dark && `
+    .navigation {
+      filter: invert(1);
+      color: ${theme.color.dark};
+
+      .link:hover {
+        color: black;
+      }
+
+      .active { color: ${theme.color.opacity} }
+      }
+  `}
+
   .dark {
     background: ${theme.color.dark};
   }
@@ -92,14 +105,14 @@ const HeaderStyle = styled.header<{ dark: any }>`
   @media (min-width: 1027px) { padding: 0px 10%; }
 `;
 
-const MenuStyle = styled.div`
+const MenuStyle = styled.header<{ dark: any }>`
 .menu-tab {
   position: absolute;
   top: 80px;
   left: 0;
   width: 100%;
   z-index: 10;
-  background: ${theme.color.dark};
+  background: ${({ dark }) => dark ? theme.color.dark : '#dddddd'};
   height: 0px;
   transition: all 0.3s;
   }
@@ -121,11 +134,11 @@ const MenuStyle = styled.div`
 
     .link-tab {
       height: max-content;
-      color: ${theme.color.light};
+      color: ${({ dark }) => dark ? theme.color.light : theme.color.light};
       font-size: 16px;
       padding: 5px 10px;
       cursor: pointer;
-      background-color: ${theme.color.opacity};
+      background-color: ${({ dark }) => dark ? theme.color.opacity : theme.color.dark};
       border-radius: 8px;
     }
   }
@@ -184,7 +197,7 @@ const Header = () => {
         </div>}
       </nav>
 
-      <MenuStyle>
+      <MenuStyle dark={darkMode ? 'true' : ''}>
         {Menu && <div className="bg" onClick={() => SetMenu(!Menu)} />}
         <div className={`${Menu ? "active-tab" : ""} menu-tab`}>
           <div className='menu-nav'>
@@ -193,7 +206,7 @@ const Header = () => {
             <LinkActive href='/contact' className="link-tab">Contatos</LinkActive>
           </div>
         </div>
-    </MenuStyle>
+      </MenuStyle>
     </HeaderStyle>
     </StyleSheetManager>
   )

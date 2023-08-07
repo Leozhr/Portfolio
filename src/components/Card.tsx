@@ -37,7 +37,7 @@ const CardStyle = styled.header`
         margin-top: 5px;
         font-size: 14px;
         line-height: 24px;
-        color: ${theme.color.detail};
+        color: ${theme.color.flare};
       }
     }
   }

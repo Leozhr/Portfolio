@@ -34,7 +34,7 @@ const ProfileMainStyle = styled.div`
 const ProfileMain = () => {
   return (
     <ProfileMainStyle>
-        <h1>Desenvolvedor <span>Frontend</span></h1>
+        <h1>Desenvolvedor <span>FullStack</span></h1>
 
         <picture>
           <Image src="/images/leonardo.png" height={150} width={150} alt="Profile"

@@ -1,4 +1,5 @@
 import { theme } from '@/styles';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 const ContactDataStyle = styled.div`
@@ -39,11 +40,21 @@ const ContactDataStyle = styled.div`
           text-align: center;
           color: ${theme.color.light};
         }
+
+        &:active {
+          background: ${theme.color.opacity};  
+        }
       }
   }
 `
 
 const ContactData = () => {
+  const router = useRouter();
+
+  const handleLink = () => {
+    router.push("https://download848.mediafire.com/puqdhq121o3ggHKl_7M9zaq5351gMsDFwah5QrPBUye8VjYNJJOndShIsMvWSNaqa9Uk94opX0ghG0PmdUHAKpRZwNX4NCOd7y2Ed5MaRtNYllZOjPyjmAtvEJ3FpEFwQupu5mvDOwGngW0HLBUuOQ5wBCVTBVqke0qg-UNus-Yi/8tx2cohg5j9ajm1/Leonardo_CV-Tech.pdf");
+  }
+
   return (
     <ContactDataStyle>
       <h1>Meus <span>Dados</span></h1>
@@ -57,7 +68,7 @@ const ContactData = () => {
           <h2>(12) 99640-7624</h2>
         </div>
 
-        <div className='cv'>
+        <div className='cv' onClick={handleLink}>
           <h2>Abaixar Curriculo</h2>
         </div>
       </div>

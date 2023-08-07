@@ -4,14 +4,16 @@ import styled from 'styled-components';
 import 'swiper/css';
 
 const ProfileCarrosselStyle = styled.div`
-  margin: 0px 0px 0px 20px;
-  width: 280px;
-  padding: 40px 30px;
-  border-radius: 12px;
-  border: 1px solid ${theme.color.flare};
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .category {
+    width: 300px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid ${theme.color.flare};
+    background-color: white;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -47,6 +49,24 @@ const ProfileCarrosselStyle = styled.div`
         border: 1px solid ${theme.color.detail};
       }
     }
+  }
+
+  @media (min-width: 1027px) {
+  width: 350px;
+
+  .category {
+    span {
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
   }
 `
 

@@ -53,8 +53,31 @@ const ProjectMainStyle = styled.div`
   }
 
   @media (min-width: 1027px) {
+    .project-main {
+      padding: 120px 0px;
+      box-shadow: 0px 0px 10px 0px ${theme.color.dark};
+    }
+
     .project-tab {
-    border-top: none;
+      padding: 80px 10%;   
+      border-top: none;
+    }
+
+    .project-main {
+      h1 {
+        font-size: 62px;
+        line-height: 72px;
+      }
+    }
+
+    .title {
+      padding: 120px 0px 0px 0px;
+
+      h1 {
+      font-size: 64px;
+      font-weight: 600;
+      color: ${theme.color.dark};
+      }
     }
   }
 `

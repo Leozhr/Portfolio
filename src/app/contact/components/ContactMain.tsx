@@ -1,6 +1,7 @@
 import { useWidthPage } from '@/functions/WidthPage';
 import { theme } from '@/styles';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 const ContactMainStyle = styled.main`
@@ -86,6 +87,11 @@ const ContactMainStyle = styled.main`
 
 const ContactMain = () => {
   const widthPage = useWidthPage();
+  const router = useRouter();
+
+  const handleLink = () => {
+    router.push("https://drive.google.com/u/0/uc?id=1fHfuPZgsqd14pGizL1jIoTBfdpifB1c-&export=download");
+  }
 
   return (
     <ContactMainStyle>
@@ -96,7 +102,7 @@ const ContactMain = () => {
            sugestões e oportunidades de trabalho.
            {widthPage >= 1027 ? ' Sinta-se à vontade para compartilhar sua visão ou ideias para aprimorar meus projetos e contribuir para o meu crescimento profissional.' : ''}</p>
 
-        {widthPage >= 1027 && <button>
+        {widthPage >= 1027 && <button onClick={handleLink} type='button'>
           <div>
             <Image src="/images/code.svg" height={20} width={20} alt="Arrow" />
             <span>Abaixar Curriculo</span>

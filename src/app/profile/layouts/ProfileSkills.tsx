@@ -1,3 +1,4 @@
+import { useWidthPage } from '@/functions/WidthPage';
 import { theme } from '@/styles';
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -61,9 +62,48 @@ const ProfileSkillsStyle = styled.div`
   .cards {
     border-top: 1px solid ${theme.color.hidden};
   }
+
+  @media (min-width: 1027px) {
+  padding: 160px 0px;
+  overflow: hidden;
+
+  .title {
+    h1 {
+      font-size: 62px;
+      span { display: inline-block; }
+    }
+  }
+
+  .university {
+    margin: 150px 15% 100px 15%;
+    padding: 30px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    ul {
+      margin-top: 0px;
+      gap: 12px;
+
+      li {
+        gap: 12px;
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  }
 `
 
 const ProfileSkills = () => {
+  const widthPage = useWidthPage();
+
   return (
     <ProfileSkillsStyle>
        <div className='title'>
@@ -71,7 +111,7 @@ const ProfileSkills = () => {
        </div>
 
        <div className='university'>
-         <h2>Análise e Des. de Sistemas</h2>
+         <h2>Análise e {widthPage <= 1027 ? 'Des.' : 'Desenvolvimento'} de Sistemas</h2>
 
          <div className='university-list'>
            <ul>
@@ -95,32 +135,38 @@ const ProfileSkills = () => {
           <ProfileCard 
           skill="React" 
           duration="36H" 
-          data="2023" />
+          data="2023"
+          course='Origamid: Formação Front-end Profissional' />
 
           <ProfileCard 
           skill="Node" 
           duration="50H" 
-          data="2023" />
+          data="2023"
+          course='Udemy: Formação NodeJS Completo' />
 
           <ProfileCard 
           skill="Javascript" 
           duration="74H" 
-          data="2023" />
+          data="2023"
+          course='Origamid: Formação Front-end Profissional' />
 
           <ProfileCard 
           skill="HTML & CSS" 
           duration="46H" 
-          data="2023" />
+          data="2023"
+          course='Origamid: Formação Front-end Profissional' />
 
           <ProfileCard 
           skill="UI Design" 
           duration="36H" 
-          data="2023" />
+          data="2023"
+          course='Origamid: Formação Front-end Profissional' />
 
           <ProfileCard 
           skill="UX Design" 
           duration="16H" 
-          data="2023" />
+          data="2023"
+          course='Origamid: Formação Front-end Profissional' />
        </div>
     </ProfileSkillsStyle>
   )
