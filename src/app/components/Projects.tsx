@@ -71,24 +71,11 @@ const Projects = () => {
       
       <div className='projects'>
         <Project
-        href="/"
-        title="Storee"
-        description="React, Next & Node"
-        src="/images/project-01.png"
-        skills={['React', 'Next', 'Node']} />
-  
-        <Project
-        href="/"
-        title="AeroTour"
-        description="React, Next & Node"
-        src="/images/project-01.png"
-        skills={['React', 'Next', 'MySQL']} />
-  
-        <Project
-        href="/"
-        title="Storee"
-        description="React, Next & Node"
-        src="/images/project-01.png" />
+        href="https://iumovies.vercel.app/home/main"
+        title="IUMovies"
+        description="Angular, TypeScript & CSS"
+        src="/images/projects/project-01.png"
+        skills={['Angular', 'TypeScript', 'CSS']} />
       </div>
 
       <Link href="/project" className='all-projects'>

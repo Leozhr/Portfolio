@@ -96,47 +96,11 @@ const ProjectMain = () => {
       <div className='project-tab'>
       <ProjectLight
       dark={true}
-      href="/home"
-      title="Storee"
-      description="React, Next & Node"
-      src="/images/project-01.png"
-      skills={['React', 'Next', 'Node']} />
-
-      <ProjectLight
-      dark={true}
-      href="/"
-      title="AeroTour"
-      description="React, Next & Node"
-      src="/images/project-01.png"
-      skills={['React', 'Next', 'MySQL']} />
-
-      <ProjectLight
-      dark={true}
-      href="/"
-      title="Storee"
-      description="React, Next & Node"
-      src="/images/project-01.png" />
-
-      <ProjectLight
-      dark={true}
-      href="/"
-      title="Storee"
-      description="React, Next & Node"
-      src="/images/project-01.png" />
-
-      <ProjectLight
-      dark={true}
-      href="/"
-      title="Storee"
-      description="React, Next & Node"
-      src="/images/project-01.png" />
-
-      <ProjectLight
-      dark={true}
-      href="/"
-      title="Storee"
-      description="React, Next & Node"
-      src="/images/project-01.png" />
+      href="https://iumovies.vercel.app/home/main"
+      title="IUMovies"
+      description="Angular, TypeScript & CSS"
+      src="/images/projects/project-01.png"
+      skills={['Angular', 'TypeScript', 'CSS']} />
       </div>
     </ProjectMainStyle>
   )

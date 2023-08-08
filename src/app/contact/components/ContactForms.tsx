@@ -1,8 +1,13 @@
 import { theme } from '@/styles';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
 import zod from 'zod';
+
+import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
+
 
 const ContactFormsStyle = styled.div`
   padding: 80px 20px 40px;
@@ -50,6 +55,7 @@ const ContactFormsStyle = styled.div`
     }
 
     button {
+      content: 'olaaa';
       padding: 15px 20px;
       background-color: ${theme.color.dark};
       color: ${theme.color.light};
@@ -58,6 +64,11 @@ const ContactFormsStyle = styled.div`
       font-weight: 600;
       cursor: pointer;
       border-radius: 50px;
+
+      & .loading {
+        display: none;
+        filter: invert(1);
+      }
     }
   }
 
@@ -126,22 +137,75 @@ const ContactFormsStyle = styled.div`
 `
 
 const ContactForms = () => {
+  const [ formData, setFormData ] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const dataSchema = zod.object({
     name: zod.string().nonempty('Seu Nome é obrigatório!'),
     email: zod.string().nonempty('Seu Email é obrigatório!').email('Por favor, insira um email válido.'),
     message: zod.string().nonempty('A mensagem não pode ficar em branco.').min(10, 'A mensagem deve ter pelo menos 10 caracteres.'),
   })
 
-  const { register, handleSubmit, formState: { errors } } = useForm<CreateUserFormData>({
+  const { register, handleSubmit, formState: { errors }, control } = useForm<CreateUserFormData>({
     resolver: zodResolver(dataSchema),
   })
 
   type CreateUserFormData = zod.infer<typeof dataSchema> 
 
-  const onSubmit = (data: any) => {
-    console.log(data)
-  }
+  const onSubmit = async (data: any) => {
+    try {
+      await fetch('/api/send', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' } });
+    } catch (error) {
+      console.log({ error: error });
+      toast('Ops, algo deu errado, tente novamente mais tarde', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
 
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    });
+
+    toast('Mensagem enviada com sucesso!', {
+      position: "top-right",
+      style: {
+        background: 'white',
+        fontFamily: 'Poppins, sans-serif',
+        color: '#141414',
+        fontSize: '14px',
+      },
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
 
   return (
     <ContactFormsStyle>
@@ -149,20 +213,50 @@ const ContactForms = () => {
 
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input type="text" placeholder="Nome" {...register('name')} />
+          <input type="text" placeholder="Nome" {...register('name')} value={formData.name} onChange={handleChange} />
           {errors.name && <p>{errors.name.message}</p>}
         </div>
         <div>
-          <input type="text" placeholder="E-mail" {...register('email')} />
+          <input type="text" placeholder="E-mail" {...register('email')} value={formData.email} onChange={handleChange} />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <div>
-          <textarea rows={5} cols={50} placeholder="Mensagem" {...register('message')} />
+        <Controller
+        name="message"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+        <>
+          <textarea
+            {...field}
+            rows={5}
+            cols={50}
+            placeholder="Mensagem"
+            value={formData.message}
+            onChange={(e: any) => {
+              field.onChange(e);
+              handleChange(e);
+            }}
+          />
           {errors.message && <p>{errors.message.message}</p>}
+          </>
+          )} />
         </div>
 
         <button type="submit">Enviar</button>
       </form>
+
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light" />
     </ContactFormsStyle>
   )
 }

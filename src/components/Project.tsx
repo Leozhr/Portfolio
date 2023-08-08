@@ -49,6 +49,7 @@ const ProjectStyleLight = styled.section`
 
     &-img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -94,7 +95,7 @@ const Project = ({ href, title, description, src, skills, dark }: ProjectProps) 
         </div>
     
         <div className={`block ${Active ? 'block-active' : ''}`} onClick={() => router.push(href)}>
-          <Image src={src} height={500} width={750} alt="Project"
+          <Image src={src} height={200} width={450} alt="Project"
           className='block-img' />
         </div>
       </ProjectStyleLight>}

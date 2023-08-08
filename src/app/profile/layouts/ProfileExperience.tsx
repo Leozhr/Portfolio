@@ -77,8 +77,6 @@ const ProfileExperience = () => {
         slidesPerView={1}
         pagination={true}
         modules={[Pagination]}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         >
         <SwiperSlide>
           <ProfileTab

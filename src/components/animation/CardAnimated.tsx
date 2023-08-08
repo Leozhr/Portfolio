@@ -79,7 +79,8 @@ const CardAnimated = ({ title, skills, src, href }: CardProps) => {
   const router = useRouter();
   
   return (
-    <Card       
+    <Card    
+        shineStrength={0.1}   
         style={{
         background: `url(${src}) no-repeat center`,
         width: '750px',
@@ -87,7 +88,7 @@ const CardAnimated = ({ title, skills, src, href }: CardProps) => {
         margin: '0 0 80px 0',
         cursor: 'pointer',
         zIndex: '0'
-      }}
+      }}      
       onClick={() => router.push(href)}>
         <CardStyleAnimated>
           <div className='card'>
