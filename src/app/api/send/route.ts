@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resend = new Resend('re_XH4ZrWgw_7GhMCjNSJR62ZQUMV9cw7jUu');
+
   const BodySchema = z.object({
     name: z.string().nonempty('Seu Nome é obrigatório!'),
     email: z.string().nonempty('Seu Email é obrigatório!').email('Por favor, insira um email válido.'),
