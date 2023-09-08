@@ -96,6 +96,14 @@ const ProjectMain = () => {
       <div className='project-tab'>
       <ProjectLight
       dark={true}
+      href="https://genius-ai-next-js.vercel.app/"
+      title="Genius"
+      description="Next, React, Typescript & MySQL"
+      src="/images/projects/project-02.png"
+      skills={['Next', 'React', 'Typescript', 'MySQL']} />
+
+      <ProjectLight
+      dark={true}
       href="https://iumovies.vercel.app/home/main"
       title="IUMovies"
       description="Angular, TypeScript & CSS"
