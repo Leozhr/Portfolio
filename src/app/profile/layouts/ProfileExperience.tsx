@@ -80,25 +80,13 @@ const ProfileExperience = () => {
         >
         <SwiperSlide>
           <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
+          startDate='Jan 2020'
+          endDate='Dez 2021'
+          title='Gerdau'
+          description='Experiência como estágio em apontador de produção, atuando como eletrônica. Responsável pelo
+          auxílio na manutenção de máquinas, incluindo o desenvolvimento de programação de robos e dados.
+          ' />
         </SwiperSlide>
-        <SwiperSlide>
-        <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
-        </SwiperSlide>
-        <SwiperSlide>
-        <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
-        </SwiperSlide> 
       </Swiper> 
       </ProfileExperienceStyle>}
 
@@ -109,22 +97,11 @@ const ProfileExperience = () => {
 
         <div className='cards'>
         <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
-
-        <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
-
-        <ProfileTab
-          startDate='Jan 2023'
-          endDate='Atualmente'
-          title='LeArt'
-          description='A LeArt foi fundada com o propósito de desenvolver sites e plataformas funcionais, através de trabalhos freelancer voluntários e remunerados, visando adquirir experiência na área de desenvolvimento.' />
+          startDate='Jan 2020'
+          endDate='Dez 2021'
+          title='Gerdau'
+          description='Experiência como estágio em apontador de produção, atuando como eletrônica. Responsável pelo
+          auxílio na manutenção de máquinas, incluindo o desenvolvimento de programação de robos e dados.' />
         </div>
       </ProfileExperienceStyleDesktop>}
     </section>

@@ -52,9 +52,10 @@ const ProfileCarrosselStyle = styled.div`
   }
 
   @media (min-width: 1027px) {
-  width: 350px;
+  width: 1200px;
 
   .category {
+    width: 80%;
     span {
       font-size: 16px;
     }
@@ -64,7 +65,7 @@ const ProfileCarrosselStyle = styled.div`
     }
 
     p {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
   }
@@ -86,8 +87,8 @@ const ProfileTab = ({ startDate, endDate, title, description }: ProfileCarrossel
 
         <div className='card'>
           <div className='card-items'>
-            <span>Design</span>
-            <span>Desenvolvimento</span>
+            <span>Programação</span>
+            <span>Robótica</span>
           </div>
 
           <p>{description}</p>

@@ -55,7 +55,66 @@ const ProfileAboutStyle = styled.div`
   }
 
   @media (min-width: 1027px) {
-    
+    padding: 80px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+    display: flex;
+    width: 70%;
+    background-color: white;
+    padding: 40px 0px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 2px #00000025;
+
+  h1 {
+    color: ${theme.color.dark};
+    text-align: center;
+    width: 20ch;
+    line-height: 28px;
+    font-size: 28px;
+
+    span {
+      color: ${theme.color.detail};
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+    width: 70%;
+    padding: 20px 0px 30px;
+    line-height: 26px;
+  }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+
+    div {
+      text-align: center;
+      width: 100%;
+      padding: 10px 40px;
+      background-color: white;
+      box-shadow: 0px 0px 2px #00000025;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      span {
+        color: ${theme.color.flare};
+      }
+    }
+  }
   }
 `
 

@@ -75,7 +75,7 @@ const ProfileSkillsStyle = styled.div`
   }
 
   .university {
-    margin: 150px 15% 100px 15%;
+    margin: 150px 10% 100px 10%;
     padding: 30px 50px;
     display: flex;
     align-items: center;
@@ -98,6 +98,10 @@ const ProfileSkillsStyle = styled.div`
       }
     }
   }
+  }
+
+  @media (min-width: 1027px) {
+    
   }
 `
 

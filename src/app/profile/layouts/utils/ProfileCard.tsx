@@ -26,7 +26,7 @@ const ProfileCardStyle = styled.div`
     border-bottom: 1px solid ${theme.color.hidden};
 
   .skill {
-    padding: 35px 15%;
+    padding: 35px 8%;
     position: relative;
 
     h1, span, p {
