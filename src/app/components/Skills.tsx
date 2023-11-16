@@ -76,6 +76,11 @@ const Skills = () => {
         position={'008'}
         skillStack='IU Design'
         skillValue={88} />
+
+        <SkillDetail
+        position={'009'}
+        skillStack='Jest'
+        skillValue={70} />
       </div>
     </SkillsStyle>
   )
