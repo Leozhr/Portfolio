@@ -90,7 +90,7 @@ const ContactMain = () => {
   const router = useRouter();
 
   const handleLink = () => {
-    router.push("https://drive.google.com/u/0/uc?id=1fHfuPZgsqd14pGizL1jIoTBfdpifB1c-&export=download");
+    router.push("https://drive.google.com/u/0/uc?id=1OOwM4qsHRGPLJYuTYjOgPLDETuK4RqIg&export=download");
   }
 
   return (

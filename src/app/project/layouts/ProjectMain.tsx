@@ -96,6 +96,22 @@ const ProjectMain = () => {
       <div className='project-tab'>
       <ProjectLight
       dark={true}
+      href="https://genius-ai-next-js.vercel.app/"
+      title="Genius.AI"
+      description="Next, Typescript & TailwindCSS"
+      src="/images/projects/project-02.png"
+      skills={['Next', 'Typescript', 'TailwindCSS']} />
+
+      <ProjectLight
+      dark={true}
+      href="https://ecommerce-leozhr.vercel.app"
+      title="Next Commerce"
+      description="Next, Typescript & TailwindCSS"
+      src="/images/projects/project-05.png"
+      skills={['Next', 'TypeScript', 'TailwindCSS']} />
+
+      <ProjectLight
+      dark={true}
       href="https://iumovies.vercel.app/home/main"
       title="IUMovies"
       description="Angular, TypeScript & CSS"
@@ -107,8 +123,16 @@ const ProjectMain = () => {
       href="https://spotify-leozhr.vercel.app/login"
       title="Spotify Clone"
       description="Angular, TypeScript & CSS"
-      src="/images/projects/spotifyweb.png"
+      src="/images/projects/project-03.png"
       skills={['Angular', 'TypeScript', 'CSS']} />
+
+      <ProjectLight
+      dark={true}
+      href="https://ai-man.vercel.app/home"
+      title="AI.Man"
+      description="Angular & CSS"
+      src="/images/projects/project-04.png"
+      skills={['Angular', 'CSS']} />
       </div>
     </ProjectMainStyle>
   )

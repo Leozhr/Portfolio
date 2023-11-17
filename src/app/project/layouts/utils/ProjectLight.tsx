@@ -84,6 +84,11 @@ const ProjectLight = ({ href, title, description, src, skills, dark }: ProjectPr
   const widthPage = useWidthPage();
   const router = useRouter();
 
+  function handleClick() {
+    setActive(false);
+    router.push(href)
+  }
+
   return (
     <section>
       {widthPage <= 1027 && <ProjectStyleLight>
@@ -99,7 +104,7 @@ const ProjectLight = ({ href, title, description, src, skills, dark }: ProjectPr
     
         <div className={`block ${Active ? 'block-active' : ''}`}>
           <Image src={src} height={500} width={750} alt="Project"
-          className='block-img' onClick={() => router.push(href)} />
+          className='block-img' onClick={() => handleClick()} />
         </div>
       </ProjectStyleLight>}
 
